@@ -1,7 +1,7 @@
 # Objects in JavaScript
-### What are Objects in JavaScripts
+### What are Objects in JavaScript
 
->An object in JavaScript is a collection of key-value pair. Each key-value pair is called as a property. 
+>An object in JavaScript is a collection of key-value pairs. Each key-value pair is called as a property. 
 >A property can be a function, an array, an object itself or any primitive data type i.e. integer, string, etc.
 >Functions in the object are called as methods. 
 
