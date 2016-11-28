@@ -17,10 +17,13 @@ var human = {
 	}
 }
 ```
->Here firstName, lastName, and fullName are properties of the same object i.e. Human.
+>Here firstName, lastName, and fullName are properties of the same object i.e. **human**.
 >Every human will have these properties but their values may be different i.e. firstName, lastName may 
 >have different value for different human.
 
+```javascript
+console.log(human);
+```
 #### Console output
 ![alt text](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part1/CodeSnippets/BasicObjectExample.png)
 
