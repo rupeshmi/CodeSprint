@@ -196,7 +196,8 @@ console.log(sachinTendulkar);
 
 #### Delete a property from an object
 
->To delete a property from an object we can use the ‘delete’ operator. ****You cannot delete properties that were inherited, nor can you >delete properties with their attributes set to configurable.****
+>To delete a property from an object we can use the ‘delete’ operator. You cannot delete properties that were inherited, nor can you 
+>delete properties with their attributes set to configurable.
 
 >***‘delete’*** operator returns true if the delete was successful. It also return true if the property to delete was non-existent or 
 >the property could not be deleted
