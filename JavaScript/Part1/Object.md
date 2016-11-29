@@ -3,7 +3,7 @@
 
 >An object in JavaScript is a collection of key-value pairs. Each key-value pair is called as a property. 
 >A property can be a function, an array, an object itself or any primitive data type i.e. integer, string, etc.
->Functions in the object are called as methods. 
+>Functions in object are called as methods. 
 
 >Consider a simple object:
 
@@ -46,7 +46,7 @@ human.getAge = function(){
 }
 ```
 
->Now console human and we will find new properties age and getAge() added to human object as shown below:
+>Now console human and we will find new properties age and getAge() added to the human object as shown below:
 ```javascript
 Console.log(human);
 ```
@@ -80,7 +80,7 @@ var firstNameProperty = "firstName";
 console.log(human[firstNameProperty]) // Output: Virat
 ```
 
-> **Note**: Above method cannot be used to access property using dot notation
+> **Note**: Above method of using variable to access property names cannot be used to access properties of the object using dot notation
 
 ```javascript
 Console.log(human.firstNameProperty) //Output: undefined
