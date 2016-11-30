@@ -14,12 +14,14 @@ console.log(Object); //Global constructor function with name as Object
 >Above statement gives the definition of the *Object* function. 
 
 >Prototype of the Object() function
+
 ```javascript
 console.log(Object.prototype); //Global constructor function with name as Object
 ```
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part3/CodeSnippets/ObjectPrototype.png)
 
 >Let's call this function
+
 ```javascript
 console.log(Object()); //Outputs: Empty object with __proto__ prperty
 ```
@@ -28,7 +30,7 @@ console.log(Object()); //Outputs: Empty object with __proto__ prperty
 >Object() gives an object which is empty and have __proto__ property
 This object is inherited by all other objects in JavaScript
 
->\_\_proto\_\_roperty points to the prototype object of the constructor function i.e Object()
+>\_\_proto\_\_ property points to the prototype object of the constructor function i.e Object()
 
 ```javascript
 var obj = Object()
@@ -39,6 +41,7 @@ console.log(a.__proto__ === Object.prototype) //true
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part3/CodeSnippets/ObjectObjProto.jpg)
 
 >Let's create an empty functiom
+
 ```javascript
 var a = function(){}
 console.log(a.prototype)
