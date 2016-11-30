@@ -212,10 +212,9 @@ console.log(person2.name)//Output: Ashwin
 #### Problems with the prototype
 
 >Prototype object of the constructor function is shared among all the objects created using the constructor function.
->All properties on the prototype are shared among instances, which is ideal for functions. Properties
->that contain primitive values also tend to work well, as shown in the previous example, where it’s
->possible to hide the prototype property by assigning a property of the same name to the instance.
->The real problem occurs when a property contains a reference value. Consider the following example:
+>All properties on the prototype are shared among all the objects created using the constructor function, which is ideal for functions. >Properties that contain primitive values also tend to work well, as shown in the previous example, where it’s
+>possible to hide the prototype property by assigning a property of the same name to the object as show in the above example.
+>The real problem occurs when a prototype object contains a property of reference type. Consider the following example:
 
 > Modifying the primitive type properties works well as shown below
 
@@ -225,7 +224,7 @@ console.log(perosn1.name);//Output: Ganguly
 console.log(person2.name);//Output: Ashwin
 ```
 
-#### Consider an another example to display the issue with when the properties are of reference type
+#### Consider another example to display the issue with proptotypes when the prototype object contains a property of reference type
 
 ```javascript
 //Create an empty constructor function
@@ -234,7 +233,7 @@ function Person(){
 //Add property name, age to the prototype property of the Person constructor function
 Person.prototype.name = "Ashwin" ;
 Person.prototype.age = 26;
-Person.prototype.friends = ['Jadeja', 'Vijay'],
+Person.prototype.friends = ['Jadeja', 'Vijay'],//Arrays are of reference type in JavaScript
 Person.prototype.sayName = function(){
 	console.log(this.name);
 }
@@ -251,11 +250,10 @@ console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
 ```
 
 >Here, the Person.prototype object has a property called friends that contains an array of strings.
->Two instances of Person are then created. The person1.friends array is altered by adding another
->string. Because the friends array exists on Person.prototype, not on person1, the changes made
->are also refl ected on person2.friends (which points to the same array). If the intention is to have
+>Two objects of Person, person1 and person2 are created. *person1* modifies *friends* property and adds an another string in the array.
+>string. Because the friends array exists on Person.prototype, not on person1, the changes made in the friends property by person1 >objects are also reflected on person2.friends (which points to the same array). If the intention is to have
 >an array shared by all instances, then this outcome is okay. Typically, though, instances want to
->have their own copies of all properties. This is why the prototype pattern is rarely used on its own.
+>have their own copies of all properties.
 
 #### Combine Constructor/Prototype
 
