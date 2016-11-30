@@ -161,14 +161,14 @@ Person.prototype.sayName = function(){
 }
 
 //Create an object using the Person constructor function
-var person = new Person();
+var person1 = new Person();
 //Access the name property using the person object
-console.log(person.name)// Output" Ashwin
+console.log(person1.name)// Output" Ashwin
 ```
 >Let's analyze what happened when we did **console.log(person.name)**
 >Let's check if person object has name property
 ```javascript
-console.log(person);
+console.log(person1);
 ```
 #### Console output
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/personEmptyObject.png)
@@ -176,21 +176,94 @@ console.log(person);
 >As we can see that person object is empty and it does not have any property except it's dunder proto property. 
 >So how does the output of console.log(person.name) was 'Ashwin'
 
-> Whenever a property is accessed for reading on an object, a search is started to find a property with that name.
->The search begins on the object instance itself. If a property with a given names is found on the instance, then that value
+> When we try to access a property of an object, the seach for the property begins directly on the object itself
+> If a property with a given names is found on the instance, then that value
 >is returned; if the property is not found, then the search
->continues up the pointer to the prototype, and the prototype is searched for a property with
->the same name. If the property is found on the prototype, then that value is returned. So, when
->person1.name is called, JavaScript engine checks if the property exsit on the person oject. In this 
+>continues up the pointer to the prototype of the object, and the prototype is searched for a property with
+>the same name. If the property is found on the prototype, then that value is returned. 
+
+>So, when person1.name is called, JavaScript engine checks if the property exsit on the person oject. In this 
 >case, name property was not on the person's object. So, now JavaScript engine checks if the name property exists on the 
-dunder proto property of the person's object. In this cases, name property was there on the dunder proto property of person's object.
->Hence, the output was returned "Ashwin". If the dunder proto property of the person's object does not have the name property
->then dunder proto property of the dunder protot prperty of the person's object was searched and this process will continure till the 
+dunder proto property or the prototype of the person's object. In this cases, name property was there on 
+>the dunder proto property or the prototype of person's object. Hence, the output was returned "Ashwin". 
+>If the dunder proto property of the person's object does not have the name property
+>then dunder proto property of the dunder proto prperty of the person's object was searched and this process will continure till the 
 >dunder proto property is null. In this cases output will be *undefined*.
 
+>Let's create an another object person2 using the Person constructor function
+```javascript
+var person2 = new Person();
+//Access the name property using the person2 object
+console.log(person2.name)// Output: Ashwin
+```
 
+Now, let's define a property *name* on the person oject
+```javascript
+person1.name = "Anil"
+console.log(person1.name)//Output: Anil
+console.log(person2.name)//Output: Ashwin
+```
+>This happended because, when we define a property on the object itself, JavaScript engine takes the *name*
+>property from the object itself and not from the objects prototype property i.e. person1 object's *name* property shadows the 
+>*name* property of the prototype object.
 
+>person2 does not have *name* property hence, it looks up to the prototype to get the name property. 
 
+#### Problems with the prototype
+>Prototype object of the constructor function is shared among all the objects created using the constructor function.
+>All properties on the prototype are shared among instances, which is ideal for functions. Properties
+>that contain primitive values also tend to work well, as shown in the previous example, where it’s
+>possible to hide the prototype property by assigning a property of the same name to the instance.
+>The real problem occurs when a property contains a reference value. Consider the following example:
+
+> Modifying the primitive type properties works well as shown below
+```javascript
+person1.name = "Ganguly"
+console.log(perosn1.name);//Output: Ganguly
+console.log(person2.name);//Output: Ashwin
+```
+
+>Consider an another example to display the issue with when the properties are of reference type
+```javascript
+
+//Create an empty constructor function
+function Person(){
+
+}
+
+//Add property name, age to the prototype property of the Person constructor function
+Person.prototype.name = "Ashwin" ;
+Person.prototype.age = 26;
+Person.prototype.friends = ['Jadeja', 'Vijay'],
+Person.prototype.sayName = function(){
+	console.log(this.name);
+}
+
+//Create objects using the Person constructor function
+var person1= new Person();
+var person2 = new Person();
+
+//Add a new element to the friends array
+person1.friends.push("Amit");
+
+console.log(person1.friends);// Output: "Jadeja, Vijay, Amit"
+console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
+
+```
+>Here, the Person.prototype object has a property called friends that contains an array of strings.
+>Two instances of Person are then created. The person1.friends array is altered by adding another
+>string. Because the friends array exists on Person.prototype, not on person1, the changes made
+>are also refl ected on person2.friends (which points to the same array). If the intention is to have
+>an array shared by all instances, then this outcome is okay. Typically, though, instances want to
+>have their own copies of all properties. This is why the prototype pattern is rarely used on its own.
+
+### Combine Constructor/Prototype
+
+>To solve the problems with the prototype and the problems with the constructor, we can combine both the constructor and function.
+1. Problem with constructor: Every object has its own instance of the function
+2. Problem with the prototype: Modifying a property using one object reflects the other object also
+
+>To solve above both problmens, we can define all the object specific properties inside the constructor and all shared properties and methods insdie the prototype as shown below:
 
 
 
