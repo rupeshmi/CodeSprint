@@ -198,6 +198,7 @@ console.log(person2.name)// Output: Ashwin
 ```
 
 Now, let's define a property *name* on the person oject
+
 ```javascript
 person1.name = "Anil"
 console.log(person1.name)//Output: Anil
@@ -210,6 +211,7 @@ console.log(person2.name)//Output: Ashwin
 >person2 does not have *name* property hence, it looks up to the prototype to get the name property. 
 
 #### Problems with the prototype
+
 >Prototype object of the constructor function is shared among all the objects created using the constructor function.
 >All properties on the prototype are shared among instances, which is ideal for functions. Properties
 >that contain primitive values also tend to work well, as shown in the previous example, where it’s
@@ -217,20 +219,19 @@ console.log(person2.name)//Output: Ashwin
 >The real problem occurs when a property contains a reference value. Consider the following example:
 
 > Modifying the primitive type properties works well as shown below
+
 ```javascript
 person1.name = "Ganguly"
 console.log(perosn1.name);//Output: Ganguly
 console.log(person2.name);//Output: Ashwin
 ```
 
->Consider an another example to display the issue with when the properties are of reference type
-```javascript
+#### Consider an another example to display the issue with when the properties are of reference type
 
+```javascript
 //Create an empty constructor function
 function Person(){
-
 }
-
 //Add property name, age to the prototype property of the Person constructor function
 Person.prototype.name = "Ashwin" ;
 Person.prototype.age = 26;
@@ -238,18 +239,15 @@ Person.prototype.friends = ['Jadeja', 'Vijay'],
 Person.prototype.sayName = function(){
 	console.log(this.name);
 }
-
 //Create objects using the Person constructor function
 var person1= new Person();
 var person2 = new Person();
-
 //Add a new element to the friends array
 person1.friends.push("Amit");
-
 console.log(person1.friends);// Output: "Jadeja, Vijay, Amit"
 console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
-
 ```
+
 >Here, the Person.prototype object has a property called friends that contains an array of strings.
 >Two instances of Person are then created. The person1.friends array is altered by adding another
 >string. Because the friends array exists on Person.prototype, not on person1, the changes made
@@ -257,7 +255,7 @@ console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
 >an array shared by all instances, then this outcome is okay. Typically, though, instances want to
 >have their own copies of all properties. This is why the prototype pattern is rarely used on its own.
 
-### Combine Constructor/Prototype
+#### Combine Constructor/Prototype
 
 >To solve the problems with the prototype and the problems with the constructor, we can combine both the constructor and function.
 1. Problem with constructor: Every object has its own instance of the function
@@ -265,6 +263,25 @@ console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
 
 >To solve above both problmens, we can define all the object specific properties inside the constructor and all shared properties and methods insdie the prototype as shown below:
 
-
-
-
+```javascript
+//Define the object specific properties inside the constructor
+function Human(name, age){
+	this.name = name,
+	this.age = age,
+	this.friends = ["Jadeja", "Vijay"]
+}
+//Define the shared properties and methods using the prototype
+Human.prototype.sayName = function(){
+	console.log(this.name);
+}
+//Create two objects using the Human constructor function
+var person1 = new Human("Virat", "Kohli");
+var person2 = new Human("Sachin", "Tendulkar");
+//Lets check if person1 and person2 have points to the same instance of the sayName function
+console.log(person1.sayName === person2.sayName) // true
+//Let's modify friends property and check
+person1.friends.push("Amit");
+console.log(person1.friends)// Output: "Jadeja, Vijay, Amit"
+console.log(person2.frinds)//Output: "Jadeja, Vijay"
+```
+>friends property of person2 did not change on changing the friends property of person1
