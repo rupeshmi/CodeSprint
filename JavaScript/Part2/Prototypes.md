@@ -3,7 +3,7 @@
 ### Problems with the constructor function
 
 >In the previou [post](https://github.com/rupeshmi/CodeSprint/edit/dev/JavaScript/Part1/Object.md) 
->we discuss about various ways of creating objects in JavaScript.
+>,we discuss about various ways of creating objects in JavaScript.
 >One of the ways to create objects in JavaScript is using the **Constructor** function.
 >Consider the construction function below:
 
@@ -16,15 +16,14 @@ function Human(firstName, lastName){
 	}
 }
 ```
->Let's create object **person1** and **person2** using the **Human** constructor function.
+>Let's create objects ***person1*** and ***person2*** using the ***Human*** constructor function.
 
 ```javascript
 var person1 = new Human("Virat", "Kohli");
 var person2 = new Human("Sachin", "Tendulkar");
 ```
 
->On execution of above code, JavaScript engines creates properties firstName, lastName and method fullName for instances person1
->and person2 as shown below:
+>On execution of above code, JavaScript engines creates properties firstName, lastName and method fullName for instances ***person1*** and ***person2*** as shown below:
 
 ![alt-text](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person1.png)
 ![alt-text](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person2.png)
@@ -37,13 +36,14 @@ var person2 = new Human("Sachin", "Tendulkar");
 ### Prototypes
 
 >When a function is created in JavaScript, JavaScript engine adds a *prototype* property to the function. 
->This *prototype* property is an oject (called as prototype object) which has a *constructor* property by default. 
+>This *prototype* property is an object (called as prototype object) which has a *constructor* property by default. 
 >*constructor* property points back to the function on which *prototype object* is a property.
->We can access the function's prototype property using this syntax **functionName.prototype**. 
+>We can access the function's prototype property using the syntax **functionName.prototype**. 
 
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/ConstructorPrototype.png)
 
->Let's see an example below:
+>As shown in the above image, **Human** constructor function has a *prototype* property which points to the prototype object. 
+> The prototype object has a *constructor* property which points back to the **Human** constructor function. Let's see an example below:
 
 ```javascript
 function Human(firstName, lastName){
@@ -59,7 +59,7 @@ console.log(Human);
 #### Console output
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/ObjectUsingConstructorFn.png)
 
->To access prototype property of the function *Human* use the below syntax:
+>To access prototype property of the *Human* constructor use the below syntax:
 
 ```javascript
 console.log(Human.prototype)
@@ -69,8 +69,8 @@ console.log(Human.prototype)
 
 >As seen from the above image *prototype* property of the function is an oject (prototype object) with two properties
 
-1. constructor property which points to  *Human* function itself
-2. \_\_proto\_\_ property - We will discuss about this while explaining *inheritance* in JavaScript
+1. *constructor* property which points to  *Human* function itself
+2. *\_\_proto\_\_* property - We will discuss about this while explaining *inheritance* in JavaScript
 
 ### Creating an object using the constructor function
 
@@ -80,7 +80,7 @@ console.log(Human.prototype)
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/HumanObjectProto.png)
 
 >As shown in the above image, **person1** object which is created using the **Human** constructor function has a 
->**dunder proto or \_\_proto\_\_** property which points to the prototype property of the constructor function.
+>**dunder proto or \_\_proto\_\_** property which points to the prototype object of the constructor function.
 
 >Let's see this in code:
 ```javascript
@@ -98,7 +98,7 @@ console.log(person1);
 ```javascript
 Human.prototype === person1.__proto__ //true
 ```
->This shows that person1's dunder proto property and Human.prototype are pointing to the same object. 
+>This shows that person1's *dunder proto* property and *Human.prototype* are pointing to the same object. 
 
 >Now, lets's create an another object *person2* using the *Human* constructor function
 ```javascript
@@ -108,7 +108,7 @@ console.log(person2);
 #### Console output
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person2HumanProto.png)
 
->Above console output shows that even person2's dunder proto property is equal to the Human.prototype property and they points 
+>Above console output shows that even person2's *dunder proto* property is equal to the *Human.prototype* property and they points 
 >to the same oject
 
 ```javascript
@@ -124,7 +124,7 @@ person1.__proto__ === person2.__proto__ //true
 
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/person12ConsProto.png)
 
-**Prototype object of the constructor function is shared among all the objects created using the constructor function**
+**Prototype object of the constructor function is shared among all the objects created using the constructor function.**
 
 ### Prototype object
 >As prototype object is an object, we can attach properties and methods to the prototype object. Thus, enabling all the objects created
@@ -136,6 +136,7 @@ person1.__proto__ === person2.__proto__ //true
 //Dot notation
 Human.prototype.name = "Ashwin";
 console.log(Human.prototype.name)//Output: Ashwin
+
 //Square bracket notation
 Human.prototype["age"] = 26;
 console.log(Human.prototype["age"]); //Output: 26
