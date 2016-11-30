@@ -172,10 +172,10 @@ console.log(person1);
 #### Console output
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/personEmptyObject.png)
 
->As we can see that person object is empty and it does not have any property except it's dunder proto property. 
->So how does the output of console.log(person.name) was 'Ashwin'
+>As we can see that person1 object is empty and it does not have any property except it's *dunder proto* property. 
+>So how does the output of console.log(person.name) was "Ashwin"
 
-> When we try to access a property of an object, the seach for the property begins directly on the object itself
+> When we try to access a property of an object, the seach for the property begins directly on the object itself.
 > If a property with a given names is found on the instance, then that value
 >is returned; if the property is not found, then the search
 >continues up the pointer to the prototype of the object, and the prototype is searched for a property with
@@ -186,7 +186,7 @@ console.log(person1);
 dunder proto property or the prototype of the person's object. In this cases, name property was there on 
 >the dunder proto property or the prototype of person's object. Hence, the output was returned "Ashwin". 
 >If the dunder proto property of the person's object does not have the name property
->then dunder proto property of the dunder proto prperty of the person's object was searched and this process will continure till the 
+>then dunder proto property of the dunder proto prperty of the person's object was searched and this process will continue till the 
 >dunder proto property is null. In this cases output will be *undefined*.
 
 >Let's create an another object person2 using the Person constructor function
@@ -196,7 +196,7 @@ var person2 = new Person();
 console.log(person2.name)// Output: Ashwin
 ```
 
-Now, let's define a property *name* on the person oject
+Now, let's define a property *name* on the person1 oject
 
 ```javascript
 person1.name = "Anil"
