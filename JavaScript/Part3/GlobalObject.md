@@ -8,12 +8,7 @@ Let's see an example:
 ```javascript
 console.log(Object); //Global constructor function with name as Object
 ```
->Image
 
-Let's check the prototype object of the constructor fucntion
-```javascript
-console.log(Object.prototype); //Global constructor function with name as Object
-```
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part3/CodeSnippets/ObjectFunction.png)
 
 Above statement gives the definition of the *Object* function. 
