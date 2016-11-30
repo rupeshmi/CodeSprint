@@ -136,7 +136,6 @@ person1.__proto__ === person2.__proto__ //true
 //Dot notation
 Human.prototype.name = "Ashwin";
 console.log(Human.prototype.name)//Output: Ashwin
-
 //Square bracket notation
 Human.prototype["age"] = 26;
 console.log(Human.prototype["age"]); //Output: 26
