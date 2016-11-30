@@ -136,11 +136,9 @@ person1.__proto__ === person2.__proto__ //true
 //Dot notation
 Human.prototype.name = "Ashwin";
 console.log(Human.prototype.name)//Output: Ashwin
-
 //Square bracket notation
 Human.prototype["age"] = 26;
 console.log(Human.prototype["age"]); //Output: 26
-
 console.log(Human.prototype);
 ```
 #### Console output
@@ -155,17 +153,14 @@ console.log(Human.prototype);
 function Person(){
 
 }
-
 //Add property name, age to the prototype property of the Person constructor function
 Person.prototype.name = "Ashwin" ;
 Person.prototype.age = 26;
 Person.prototype.sayName = function(){
 	console.log(this.name);
 }
-
 //Create an object using the Person constructor function
 var person1 = new Person();
-
 //Access the name property using the person object
 console.log(person1.name)// Output" Ashwin
 ```
