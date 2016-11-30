@@ -288,3 +288,4 @@ console.log(person1.friends)// Output: "Jadeja, Vijay, Amit"
 console.log(person2.frinds)//Output: "Jadeja, Vijay"
 ```
 >friends property of person2 did not change on changing the friends property of person1
+![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part2/CodeSnippets/ConstProto.png)
