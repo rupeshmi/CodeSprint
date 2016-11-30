@@ -133,11 +133,14 @@ person1.__proto__ === person2.__proto__ //true
 > New property can be added to the constructor function's prototype property using either the dot notation or square bracket notation as
 >shown below:
 ```javascript
+//Dot notation
 Human.prototype.name = "Ashwin";
 console.log(Human.prototype.name)//Output: Ashwin
+
 //Square bracket notation
 Human.prototype["age"] = 26;
 console.log(Human.prototype["age"]); //Output: 26
+
 console.log(Human.prototype);
 ```
 #### Console output
@@ -162,6 +165,7 @@ Person.prototype.sayName = function(){
 
 //Create an object using the Person constructor function
 var person1 = new Person();
+
 //Access the name property using the person object
 console.log(person1.name)// Output" Ashwin
 ```
@@ -239,11 +243,14 @@ Person.prototype.friends = ['Jadeja', 'Vijay'],
 Person.prototype.sayName = function(){
 	console.log(this.name);
 }
+
 //Create objects using the Person constructor function
 var person1= new Person();
 var person2 = new Person();
+
 //Add a new element to the friends array
 person1.friends.push("Amit");
+
 console.log(person1.friends);// Output: "Jadeja, Vijay, Amit"
 console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
 ```
@@ -277,10 +284,13 @@ Human.prototype.sayName = function(){
 //Create two objects using the Human constructor function
 var person1 = new Human("Virat", "Kohli");
 var person2 = new Human("Sachin", "Tendulkar");
+
 //Lets check if person1 and person2 have points to the same instance of the sayName function
 console.log(person1.sayName === person2.sayName) // true
+
 //Let's modify friends property and check
 person1.friends.push("Amit");
+
 console.log(person1.friends)// Output: "Jadeja, Vijay, Amit"
 console.log(person2.frinds)//Output: "Jadeja, Vijay"
 ```
