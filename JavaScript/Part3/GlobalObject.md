@@ -38,6 +38,21 @@ console.log(a.__proto__ === Object.prototype) //true
 
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part3/CodeSnippets/ObjectObjProto.jpg)
 
+Let's create an empty functiom
+```javascript
+var a = function(){}
+console.log(a.prototype)
+```
+
+![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part3/CodeSnippets/aPrototype.jpg)
+
+Above image shows that a.prototype has two propertis
+1. constructor - which points to the function itself (console.log(a === a.prototype.constructor) // true)
+2. __proto__ - which is inherited from Object() 
+
+```javascript
+console.log(a.prototype.__proto__ === Object().__proto__); //Output: true
+```
 
 
 
