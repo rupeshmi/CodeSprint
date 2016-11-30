@@ -251,7 +251,7 @@ console.log(person2.friends);// Output: "Jadeja, Vijay, Amit"
 
 >Here, the Person.prototype object has a property called friends that contains an array of strings.
 >Two objects of Person, person1 and person2 are created. *person1* modifies *friends* property and adds an another string in the array.
->string. Because the friends array exists on Person.prototype, not on person1, the changes made in the friends property by person1 >objects are also reflected on person2.friends (which points to the same array). If the intention is to have
+>string. Because the friends array exists on Person.prototype, not on person1, the changes made in the friends property by person1 objects are also reflected on person2.friends (which points to the same array). If the intention is to have
 >an array shared by all instances, then this outcome is okay. Typically, though, instances want to
 >have their own copies of all properties.
 
