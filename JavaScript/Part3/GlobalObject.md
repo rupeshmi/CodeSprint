@@ -46,7 +46,8 @@ console.log(a.prototype)
 
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part3/CodeSnippets/aPrototype.jpg)
 
-Above image shows that a.prototype has two propertis
+>Above image shows that a.prototype has two propertis
+
 1. constructor - which points to the function itself (console.log(a === a.prototype.constructor) // true)
 2. __proto__ - which is inherited from Object() 
 
