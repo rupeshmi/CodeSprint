@@ -24,10 +24,10 @@ myFunction();// Output: Window object. In strict mode value will be undefined
 >The above function was not executed inside any other function or object hence, by default the myFunction was called on the global oject
 >Hence the value of this is 'window'. In strict, value would be undefined.
 
-![this in the global context]()
+![this in the global context](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part5/CodeSnippets/thisGlobal.jpg)
 
 In strict mode, value of this will be undefined
-![Value of this in strict model]()
+![Value of this in strict model](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part5/CodeSnippets/UseStrict.jpg)
 
 ### As an object method
 >When a function is called as a method of an object, its this is set to the object the method is called on.
@@ -49,7 +49,7 @@ var myObj = {
 myObj.someFunction();
 ```
 #### Console output:
-![]()
+![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part5/CodeSnippets/this.jpg)
 
 > Let's consider an another example to understand *this*
 
@@ -107,6 +107,7 @@ function ConstructorFunc(value){
 var obj1 = new ConstructorFunction(20);
 console.log(obj1.someValue)//Output: 20
 ```
+![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part5/CodeSnippets/constructorThis.jpg)
 
 
 
