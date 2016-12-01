@@ -202,45 +202,10 @@ Currently SubType constructor function has following methods and shared properte
 2. getSubAge
 
 *subTypeObj1* inherits all these properties from SubType constructor function. 
+
 ```javascript
 console.log(subTypeObj1)
 ```
 
 >Console output
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part4/CodeSnippets/subTypeObj1.jpg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
