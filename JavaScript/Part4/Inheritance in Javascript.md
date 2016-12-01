@@ -208,4 +208,5 @@ console.log(subTypeObj1)
 ```
 
 >Console output
+
 ![](https://github.com/rupeshmi/CodeSprint/blob/dev/JavaScript/Part4/CodeSnippets/subTypeObj1.jpg)
