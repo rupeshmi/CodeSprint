@@ -29,3 +29,33 @@ parseInt(null)  //Ooutput - NaN
 +undefined          //Output - NaN
 parseInt(undefined)  //Ooutput - NaN
   ```
+  
+  ```javascript
+typeof NaN //Number
+123/0 //Infinity
+var a = 123/0 
+typeof a //Number
+
+isNaN("2") //false - JS internally tries to convert this to number using parseInt("2"). 
+  ```
+> Values that are truthy or falsey
+
+Any number is except 0 are true
+undefined, NaN, null is false
+
+Infinity is true
+
+Strings with characters are true but empty string  is false
+
+> Implicit typecasting
+ ```javascript
+ 
+
+var myString = "88";
+var myNum = 88
+
+if(myNum == myString){
+	console.log("mystring is equal to mynum");
+}
+ ```
+
