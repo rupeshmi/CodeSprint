@@ -58,6 +58,12 @@ console.log("GlobalContext");
 >Similarly, once functionA is completely executed. functionA execution context will be popped of the execution context stack.
 >and the control returns to the global execution context. 
 
+### Execution context in detail
+>An execution context can be divided into a creation and execution phase
+
+#### Creation Stage [when the function is called, but before it executes any code inside]:
+>In the creation stage, the syntax parser will walk through each line of code, and when it comes to a new variable or function definition, it will commit these variables and functions to memory
+
 
 
 
